@@ -24,10 +24,10 @@ export default class FetchData extends React.Component {
             return <div>didn't get a states</div>;
         }
         return (
-            <div className="table-responsive-sm">
+            <div className="table-responsive table-responsive-sm">
                 <table className="table table-bordered table-hover">
                     <thead className="thead-dark">
-                        <tr>
+                        <tr className="bg-dark">
                             <th className="table-active" scope="col">#</th>
                             <th className="table-danger" scope="col">Confirmed</th>
                             <th className="table-primary" scope="col">Active</th>

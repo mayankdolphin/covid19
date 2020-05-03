@@ -29,10 +29,10 @@ export default class FetchStateData extends React.Component {
         }
         
         return (
-            <div className="table-responsive">
+            <div className="table-responsive table-responsive-sm">
                 <table className="table table-bordered table-hover">
                     <thead className="thead-dark">
-                        <tr>
+                        <tr className="bg-dark">
                             <th className="table-active" scope="col">#</th>
                             <th className="table-danger" scope="col">Confirmed</th>
                             <th className="table-primary" scope="col">Active</th>
@@ -41,7 +41,7 @@ export default class FetchStateData extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td colSpan="5"><strong>{this.state.statesWiseData.state} District Report</strong></td></tr>
+                        <tr className="text-center"><td colSpan="5"><strong>{this.state.statesWiseData.state} District Report</strong></td></tr>
                         {this.state.statesWiseData.districtData.map(districtData => (                            
                             <DistrictData stateData={districtData} stateName={districtData.district} />
                         ))}
