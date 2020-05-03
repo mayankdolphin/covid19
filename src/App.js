@@ -8,7 +8,7 @@ function App() {
   return (
     <Router>
     <div className="App">
-        <div className="container">
+        <div className="container-fluid">
           <div>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
               <h3><Link to={`/covid19`}>Covid19 India Report</Link></h3>
