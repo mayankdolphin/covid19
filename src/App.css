@@ -1,5 +1,33 @@
+a{
+    color: #495057;
+}
+a:hover {
+  color: #495057;
+    text-decoration: none;
+}
 .district{display: none;}
 	p.alert {display: inline-block;padding: 5px;font-size: 25px;}
 	h1{padding-top: 11px;}
   strong {width: 100%;display: inline-block;}
   .covid-center{padding: 10px; border: 1px solid rgba(0,0,0,.1)}
+  .loader {
+  border: 5px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 5px solid #3498db;
+  width: 50px;
+  height: 50px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  margin: 20px auto;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

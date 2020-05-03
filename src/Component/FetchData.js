@@ -1,10 +1,11 @@
 import React from "react";
 import StateData from "./StateData";
+import CountryData from "./CountryData";
 
 export default class FetchData extends React.Component {
     state = {
         loading: true,
-        person: null
+        states: null
     };
 
     async componentDidMount() {
@@ -16,16 +17,32 @@ export default class FetchData extends React.Component {
 
     render() {
         if (this.state.loading) {
-            return <div>loading...</div>;
+            return <div className="loader"></div>;
         }
 
         if (!this.state.states) {
             return <div>didn't get a states</div>;
         }
-
-        return this.state.states.map(stateData => (
-                    <StateData stateData={stateData}/>
-                ));
+        return (
+            <div className="table-responsive-sm">
+                <table className="table table-bordered table-hover">
+                    <thead className="thead-dark">
+                        <tr>
+                            <th className="table-active" scope="col">#</th>
+                            <th className="table-danger" scope="col">Confirmed</th>
+                            <th className="table-primary" scope="col">Active</th>
+                            <th className="table-success" scope="col">Recovered</th>
+                            <th className="table-secondary" scope="col">Deceased</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.state.states.map(stateData => (
+                            stateData.statecode === 'TT' ? <CountryData stateData={stateData} key={stateData.statecode} /> : <StateData stateData={stateData} key={stateData.statecode} />
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+        );
     }
     
 }
