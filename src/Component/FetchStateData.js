@@ -14,7 +14,8 @@ export default class FetchStateData extends React.Component {
         const response = await fetch(url);
         const data = await response.json();
         const stateFilteredData = data.filter(d => d.statecode === code);
-        this.setState({ statesWiseData: stateFilteredData[0], loading: false  })
+        this.setState({ statesWiseData: stateFilteredData[0], loading: false  });
+        document.title = (this.state.statesWiseData) ? this.state.statesWiseData.state + ' Report': '';
     }
 
     render() {
@@ -24,7 +25,7 @@ export default class FetchStateData extends React.Component {
         }
 
         if (!this.state.statesWiseData) {
-            return <div>didn't get a states</div>;
+            return <div>didn't get a report</div>;
         }
 
         return (
@@ -51,5 +52,4 @@ export default class FetchStateData extends React.Component {
             </div>
         );
     }
-
 }

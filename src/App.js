@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
-import {  BrowserRouter as Router,  Switch,  Route, Link} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
 import FetchData from './Component/FetchData';
 import FetchStateData from './Component/FetchStateData';
 
 function App() {
   return (
     <Router>
-    <div className="App">
+      <div className="App">
         <div className="container-fluid">
           <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -21,23 +21,23 @@ function App() {
                 </div>
               </div> */}
             </nav>
-        <Switch>         
-          <Route path="/covid19/" exact>
-            <Home />
-          </Route>
-          <Route path="/covid19/statewise/:code" component={FetchStateData} />
-        </Switch>
+            <Switch>
+              <Route path="/covid19/" exact component={Home} />
+              <Route path="/covid19/statewise/:code" component={FetchStateData} />
+              <Route component={Home} />
+              <Redirect to='/covid19/statewise/' from='/covid19/' />
+            </Switch>
           </div>
         </div>
-    </div>
+      </div>
     </Router>
   );
 }
 function Home() {
   return (
-    
-        <FetchData />
-      
+
+    <FetchData />
+
   );
 }
 export default App;

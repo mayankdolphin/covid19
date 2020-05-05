@@ -13,6 +13,7 @@ export default class FetchData extends React.Component {
         const response = await fetch(url);
         const data = await response.json();
         this.setState({ states: data.statewise, loading: false });
+        document.title = 'Covid19 India Report';
     }
 
     render() {

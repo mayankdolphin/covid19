@@ -1,9 +1,15 @@
+body{
+  font-size: 14px;
+}
 a{
-    color: #495057;
+    color: #084b92;
 }
 a:hover {
   color: #495057;
     text-decoration: none;
+}
+.navbar a{
+  color: #212529;
 }
 .district{display: none;}
 	p.alert {display: inline-block;padding: 5px;font-size: 25px;}
