@@ -8,7 +8,7 @@ export default class FetchData extends React.Component {
         states: null
     };
 
-    async componentDidMount() {
+    async componentDidMount() {        
         const url = "https://api.covid19india.org/data.json";
         const response = await fetch(url);
         const data = await response.json();
@@ -44,5 +44,4 @@ export default class FetchData extends React.Component {
             </div>
         );
     }
-    
 }

@@ -1,7 +1,6 @@
 import React  from 'react';
 import { Link } from "react-router-dom";
 
-
 function StateData({stateData}) {
     if (stateData.statecode !== 'TT' && parseInt(stateData.confirmed)){       
     return (
@@ -22,7 +21,7 @@ function StateData({stateData}) {
             </tr>
     );
     } else {
-        return ('');
+        return (<></>);
     }
 }
 export default StateData;

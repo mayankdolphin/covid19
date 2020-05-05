@@ -10,8 +10,8 @@ function App() {
     <div className="App">
         <div className="container-fluid">
           <div>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-              <h3><Link to={`/covid19`}>Covid19 India Report</Link></h3>
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+              <h3><Link to={`/covid19/`}>Covid19 India Report</Link></h3>
               {/* <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -25,7 +25,7 @@ function App() {
           <Route path="/covid19/" exact>
             <Home />
           </Route>
-          <Route path="/covid19/statewise/:code" exact component={FetchStateData} />
+          <Route path="/covid19/statewise/:code" component={FetchStateData} />
         </Switch>
           </div>
         </div>

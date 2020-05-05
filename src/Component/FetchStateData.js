@@ -1,5 +1,6 @@
 import React from "react";
 import DistrictData from "./DistrictData";
+import { Link } from "react-router-dom";
 
 export default class FetchStateData extends React.Component {
     state = {
@@ -12,14 +13,12 @@ export default class FetchStateData extends React.Component {
         const url = "https://api.covid19india.org/v2/state_district_wise.json";
         const response = await fetch(url);
         const data = await response.json();
-        data.map(stateData => (
-            stateData.statecode === code ? this.setState({ statesWiseData: stateData, loading: false  }) : ''
-        ));
-        
+        const stateFilteredData = data.filter(d => d.statecode === code);
+        this.setState({ statesWiseData: stateFilteredData[0], loading: false  })
     }
 
     render() {
-        console.log(this.props.match);
+        //console.log(this.props.match);
         if (this.state.loading) {
             return <div className="loader"></div>;
         }
@@ -27,7 +26,7 @@ export default class FetchStateData extends React.Component {
         if (!this.state.statesWiseData) {
             return <div>didn't get a states</div>;
         }
-        
+
         return (
             <div className="table-responsive table-responsive-sm">
                 <table className="table table-bordered table-hover">
@@ -41,9 +40,11 @@ export default class FetchStateData extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr className="text-center"><td colSpan="5"><strong>{this.state.statesWiseData.state} District Report</strong></td></tr>
+                        <tr className="text-center">
+                            <td colSpan="5"><strong>{this.state.statesWiseData.state} Report</strong><Link to={`/covid19/`}>Go Back</Link></td>
+                        </tr>
                         {this.state.statesWiseData.districtData.map(districtData => (                            
-                            <DistrictData stateData={districtData} stateName={districtData.district} />
+                            <DistrictData stateData={districtData} key={districtData.district} stateName={districtData.district} />
                         ))}
                     </tbody>
                 </table>

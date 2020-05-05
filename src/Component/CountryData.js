@@ -19,8 +19,7 @@ function CountryData({ stateData }) {
             <td>
                 {stateData.deaths} {parseInt(stateData.deltadeaths) ? (<span className="text-secondary">[+{stateData.deltadeaths}]</span>) : ''}
             </td>
-        </tr>
-        
+        </tr>        
     );
     }
     
